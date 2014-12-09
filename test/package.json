@@ -1,0 +1,14 @@
+{
+  "name": "cthmclrx-pixel-generator",
+  "version": "1.0.0",
+  "description": "cthmclrx pixel generator.",
+  "main": "pgen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "XadillaX",
+  "license": "Private",
+  "dependencies": {
+    "pixel-getter": "0.0.3"
+  }
+}

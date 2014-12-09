@@ -1,0 +1,8 @@
+[
+    {
+        "directory": "/tmp",
+        "command": "gcc xmempool.c",
+        "file": "cthmclrx.c"
+    }
+]
+
