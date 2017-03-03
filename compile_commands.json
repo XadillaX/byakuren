@@ -1,8 +1,0 @@
-[
-    {
-        "directory": "/tmp",
-        "command": "gcc byakuren.c",
-        "file": "byakuren.c"
-    }
-]
-

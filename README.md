@@ -36,9 +36,9 @@ After compiling, you may use this library just by including `byakuren.h` in your
 
 ## Supported Algorithm
 
-- [o] Octree Algorithm
-- [o] Min-diff Algorithm
-- [o] Mix Algorithm
+- [x] Octree Algorithm
+- [x] Min-diff Algorithm
+- [x] Mix Algorithm
 
 ## Test Command
 
