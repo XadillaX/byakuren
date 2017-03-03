@@ -52,13 +52,15 @@ After `make` command, you should generate a binary file named `test.rgb`. Then r
 $ cd test && ./bkr_test ALGORITHM
 ```
 
+> You may create your own `.rgb` file by referring **test/run.js** or **test/test.c**. Or you may have a look at [Test Helper](#test-helper).
+>
 > `ALGORITHM` is a parameter means algorithm you want to test.
 >
 > support `octree`、`mindiff` and `mix` so far.
 
 ## Test Helper
 
-If you want to test quickly, you may use a simple script.
+If you want to test quickly (no *.rgb), you may use a simple script.
 
 Install [Node.js](https://nodejs.org/) first and come to `test` folder. Then run:
 
