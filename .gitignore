@@ -28,6 +28,7 @@
 *.x86_64
 *.hex
 
+<<<<<<< HEAD
 *.pyc
 *.swp
 
@@ -63,3 +64,11 @@ node_modules
 
 .idea
 
+test/bkr_test
+test/test.rgb
+
+=======
+# Debug files
+*.dSYM/
+*.su
+>>>>>>> f3bb14b8bb41b7d2cd2e9bd89783eb883c21da24
