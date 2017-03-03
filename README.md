@@ -2,6 +2,8 @@
 
 A theme color extracting library implemented by C.
 
+> This library is used in a related company for years.
+
 > **TODO:** Using KD-Tree to find some colors.
 
 ## 聖 白蓮
@@ -39,6 +41,200 @@ After compiling, you may use this library just by including `byakuren.h` in your
 - [x] Octree Algorithm
 - [x] Min-diff Algorithm
 - [x] Mix Algorithm
+
+## APIs
+
+### `bkr_rgb` Structure
+
+```c
+typedef struct bkr_rgb {
+    uint8_t red;
+    uint8_t green;
+    uint8_t blue
+} bkr_rgb;
+```
+
+RGB pixel structure.
+
+| name | type | description |
+|------|------|-------------|
+| red | uint8_t | the RED value (0-255) |
+| green | uint8_t | the GREEN value (0-255) |
+| blue | uint8_t | the BLUE value (0-255) |
+
+### `bkr_color_stats` Structure
+
+```c
+typedef struct bkr_color_stats {
+    bkr_rgb color;
+    uint32_t value;
+    uint32_t count;
+} bkr_color_stats;
+```
+
+Stats of theme color result.
+
+| name | type | description |
+|------|------|-------------|
+| color | bkr_rgb | a color pixel to indicate a theme color |
+| value | uint32_t | a color pixel's INT32 value to indicates the theme color |
+| count | uint32_t | stats of this theme color in the picture |
+
+```c
+typedef struct bkr_palette_array {
+    uint32_t count;
+    bkr_rgb* colors;
+} bkr_palette_array;
+```
+
+A crowd of colors to indicate a theme color palette.
+
+| name | type | description |
+|------|------|-------------|
+| count | uint32_t | color count in this palette |
+| colors | bkr_rgb* | each color in this palette |
+
+### `bkr_mindiff_parameter` Structure
+
+```c
+typedef struct bkr_mindiff_parameter {
+    bkr_palette_array* palette;
+    int16_t gray_offset;
+} bkr_mindiff_parameter;
+```
+
+A parameter passes to Min-diff Algorithm.
+
+| name | type | description |
+|------|------|-------------|
+| palette | bkr_palette_array* | a palette to calculate the theme color, left for `NULL` to indicate the default palette |
+| gray_offset | int16_t | the offset to judge whether a color is gray, recommand to be `5` |
+
+### Octree Algorithm
+
+#### Build Octree
+
+```c
+bkr_octree_node* bkr_build_octree(
+        bkr_rgb* pixels,
+        uint32_t pixel_count,
+        uint32_t max_colors);
+```
+
+| parameter | type | description |
+|-----------|------|-------------|
+| pixels | bkr_rgb* | the RGB pixels of a picture |
+| pixel_count | uint32_t | pixel count of the picture |
+| max_colors | uint32_t | maximum theme color count this octree will have |
+
++ Return an octree
+
+#### Calculate
+
+```c
+int bkr_octree_calculate_color_stats(
+        bkr_octree_node* node,
+        bkr_color_stats stats[]);
+```
+
+| parameter | type | description |
+|-----------|------|-------------|
+| node | bkr_octree_node* | the octree which `bkr_build_octree` returned |
+| stats | bkr_color_stats | an array to receive each theme color stats |
+
++ Return the count of theme colors.
+
+#### Release Octree
+
+```c
+void bkr_release_octree(bkr_octree_node* node);
+```
+
+| parameter | type | description |
+|-----------|------|-------------|
+| node | bkr_octree_node* | the octree to be released |
+
+#### Example
+
+```c
+bkr_rgb* rgb = GET_PICTURE_RGB(); // implement by yourself
+uint32_t color_count = GET_PICTURE_PIXEL_COUNT(); // implement by yourself
+bkr_color_stats stats[256];
+bkr_octree_node* root = bkr_build_octree(rgb, color_count, 256);
+int colors = bkr_octree_calculate_color_stats(root, stats);
+bkr_release_octree(root);
+```
+
+### Min-diff Algorithm
+
+#### Calculate
+
+```c
+int bkr_mindiff_calculate_color_stats(
+        bkr_rgb* pixels,
+        uint32_t pixel_count,
+        bkr_color_stats stats[],
+        bkr_mindiff_parameter* param);
+```
+
+| parameter | type | description |
+|-----------|------|-------------|
+| pixels | bkr_rgb* | the RGB pixels of a picture |
+| pixel_count| uint32_t | pixel count of the picture |
+| stats | bkr_color_stats | an array to receive each theme color stats |
+| param | bkr_mindiff_parameter* | the parameter passes to Min-diff Algorithm for calculating |
+
++ Return the count of theme colors.
+
+#### Example
+
+```c
+bkr_rgb* rgb = GET_PICTURE_RGB(); // implement by yourself
+uint32_t color_count = GET_PICTURE_PIXEL_COUNT(); // implement by yourself
+bkr_color_stats stats[256];
+bkr_mindiff_parameter param;
+param.gray_offset = 5;
+param.palette = NULL;
+int colors = bkr_mindiff_calculate_color_stats(rgb, color_count, stats, &param);
+```
+
+### Mix Algorithm
+
+Mix Octree and Min-diff up.
+
+#### Calculate
+
+```c
+int bkr_mix_calculate_color_stats(
+        bkr_rgb* pixels,
+        uint32_t pixel_count,
+        uint32_t octree_max_colors,
+        bkr_mindiff_parameter* mindiff_param,
+        bkr_color_stats stats[]);
+```
+
+| parameter | type | description |
+|-----------|------|-------------|
+| pixels | bkr_rgb* | the RGB pixels of a picture |
+| pixel_count | uint32_t | pixel count of the picture |
+| octree_max_colors | uint32_t | maximum theme color count this octree will have |
+| param | bkr_mindiff_parameter* | the parameter passes to Min-diff Algorithm for calculating |
+| stats | bkr_color_stats | an array to receive each theme color stats |
+
++ Return the count of theme colors.
+
+#### Example
+
+```c
+bkr_rgb* rgb = GET_PICTURE_RGB(); // implement by yourself
+uint32_t color_count = GET_PICTURE_PIXEL_COUNT(); // implement by yourself
+bkr_color_stats stats[256];
+bkr_mindiff_parameter param;
+param.gray_offset = -1;
+param.palette = NULL;
+int colors = bkr_mix_calculate_color_stats(rgb, color_count, 256, &param, stats);
+print_stats(stats, colors);
+```
 
 ## Test Command
 
