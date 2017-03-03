@@ -129,4 +129,3 @@ if(opts.algorithm === "all") {
         run((os.platform() === "darwin" ? "open " : "google-chrome ") + filename);
     });
 }
-
