@@ -110,6 +110,20 @@ A parameter passes to Min-diff Algorithm.
 | palette | bkr_palette_array* | a palette to calculate the theme color, left for `NULL` to indicate the default palette |
 | gray_offset | int16_t | the offset to judge whether a color is gray, recommand to be `5` |
 
+### Initialization & Release
+
+Before the whole work you should initialize the Byakuren environment:
+
+```c
+int bkr_init();
+```
+
+And after all the work you should release the environment:
+
+```c
+void bkr_destroy();
+```
+
 ### Octree Algorithm
 
 #### Build Octree
@@ -162,7 +176,6 @@ uint32_t color_count = GET_PICTURE_PIXEL_COUNT(); // implement by yourself
 bkr_color_stats stats[256];
 bkr_octree_node* root = bkr_build_octree(rgb, color_count, 256);
 int colors = bkr_octree_calculate_color_stats(root, stats);
-bkr_release_octree(root);
 ```
 
 ### Min-diff Algorithm
