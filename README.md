@@ -304,6 +304,12 @@ For an example:
 $ ./run.js -u http://cdn.duitang.com/uploads/item/201205/22/20120522224448_43nFu.thumb.600_0.jpeg -a all
 ```
 
+### How It Look Like
+
+![Result](result.png)
+
+> With `octree_max_colors` be 16 in Octree and Mix algorithm.
+
 ## Contribution
 
 You're welcome to make Pull Requests.
