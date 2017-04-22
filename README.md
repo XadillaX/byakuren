@@ -246,7 +246,6 @@ bkr_mindiff_parameter param;
 param.gray_offset = -1;
 param.palette = NULL;
 int colors = bkr_mix_calculate_color_stats(rgb, color_count, 256, &param, stats);
-print_stats(stats, colors);
 ```
 
 ## Test Command
