@@ -8,7 +8,7 @@ A theme color extracting library implemented by C.
 
 ## 聖 白蓮
 
-![聖 白蓮](byakuren.png)
+![聖 白蓮](assets/byakuren.png)
 
 > 聖 白蓮（ひじり びゃくれん，Hiziri Byakuren）是系列作品《东方project》中的角色，首次登场于《东方星莲船》。
 >
@@ -24,6 +24,12 @@ A theme color extracting library implemented by C.
 
 ## Compile Static Library
 
+Clone the project first.
+
+```shell
+$ git clone --recurse-submodules https://github.com/XadillaX/byakuren.git
+```
+
 This project can be compiled to a static libary (byakuren.a) for using.
 
 ```shell
@@ -38,9 +44,9 @@ After compiling, you may use this library just by including `byakuren.h` in your
 
 ## Supported Algorithm
 
-- [x] Octree Algorithm
-- [x] Min-diff Algorithm
-- [x] Mix Algorithm
+- [x] octree algorithm
+- [x] min-diff algorithm
+- [x] mix-in algorithm
 
 ## APIs
 
@@ -305,7 +311,7 @@ $ ./run.js -u http://cdn.duitang.com/uploads/item/201205/22/20120522224448_43nFu
 
 ### How It Look Like
 
-![Result](result.png)
+![Result](assets/result.png)
 
 > With `octree_max_colors` be 16 in Octree and Mix algorithm.
 

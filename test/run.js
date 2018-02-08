@@ -122,7 +122,7 @@ if(opts.algorithm === "all") {
         }
     ], function(err, filename) {
         if(err) {
-            console.error(err.message);
+            console.error(err);
             process.exit(4);
         }
     
