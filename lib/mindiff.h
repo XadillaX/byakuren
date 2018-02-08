@@ -48,7 +48,7 @@
  *
  * Byakuren - A theme color extracting library implemented by C.
  *
- * Copyright (c) 2017 XadillaX <i@2333.moe>
+ * Copyright (c) 2018 XadillaX <i@2333.moe>
  *
  * MIT LIcense <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
  */
