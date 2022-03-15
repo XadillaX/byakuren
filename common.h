@@ -48,7 +48,7 @@
  *
  * Byakuren - A theme color extracting library implemented by C.
  *
- * Copyright (c) 2017 XadillaX <i@2333.moe>
+ * Copyright (c) 2022 XadillaX <i@2333.moe>
  *
  * MIT LIcense <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
  */
@@ -62,6 +62,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define BKR_VERSION "1.0.0"
 
 #ifndef NULL
 #define NULL (0)

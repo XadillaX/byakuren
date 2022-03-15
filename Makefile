@@ -48,3 +48,26 @@ clean:
 	$(RM) -rf *.o *.a test/bkr_test
 	cd ./third-party/xmempool/ && make clean
 
+%.compdb_entry: %.c
+	@echo "    {" > $@
+	@echo "        \"command\": \"$(CC) $(REAL_CFLAGS) -c $<\","   >> $@
+	@echo "        \"directory\": \"$(CURDIR)\","               >> $@
+	@echo "        \"file\": \"$<\""                    >> $@
+	@echo "    },"                              >> $@
+
+COMPDB_ENTRIES = $(addsuffix .compdb_entry, $(basename \
+	./common.c \
+	./lib/octree.c \
+	./lib/mindiff.c \
+	./const/palette.c \
+	./test/test.c \
+	./third-party/xmempool/xmempool.c))
+
+compile_commands.json: $(COMPDB_ENTRIES)
+	@echo "[" > $@.tmp
+	@cat $^ >> $@.tmp
+	@sed '$$d' < $@.tmp > $@
+	@echo "    }" >> $@
+	@echo "]" >> $@
+	@rm $(COMPDB_ENTRIES)
+	@rm $@.tmp
