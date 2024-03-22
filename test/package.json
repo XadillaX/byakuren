@@ -13,6 +13,6 @@
     "nomnom": "^1.8.1",
     "pixel-getter": "^0.0.4",
     "spidex": "^2.0.1",
-    "sync-runner": "0.1.5"
+    "sync-runner": "1.0.0"
   }
 }
