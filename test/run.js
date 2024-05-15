@@ -4,7 +4,7 @@ var pixelGetter = require("pixel-getter");
 var path = require("path");
 var fs = require("fs");
 var async = require("async");
-var run = require("sync-runner");
+var execSync = require("child_process").execSync;
 var exec = require("child_process").exec;
 var opts = require("nomnom")
     .option("url", {
@@ -86,7 +86,7 @@ if(opts.algorithm === "all") {
         },
         function(callback) {
             console.log("Making `bkr_test`...");
-            console.log(run("make ./test/bkr_test", path.resolve(dirname, "../")));
+            console.log(execSync("make ./test/bkr_test", { cwd: path.resolve(dirname, "../"), stdio: 'inherit' }));
     
             console.log("Running `bkr_test " + opts.algorithm + "`...");
             exec("./bkr_test " + opts.algorithm, {
