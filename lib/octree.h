@@ -1,71 +1,82 @@
 /**
- *
- *  　　　　　　　}:　　　　　 　 　 　 　 　 　 _､,r　､,,v　　　＼
- * 　　　　　　 /　　　　＼　　 　 　 ､,v'" ~　　　　　ﾟ~"''x､　＼
- * 　 　 　 　 / 　 　 　 　 　 　 ､r''"　　 ,, ､,v､x｡,,　　　　　~" ､,
- * 　　　　　　　　　　　 ...::::入,,"　　,,､イ: : : : : : : : :"'ﾐ､,
- * 　　　　　　　　　　...::::／ 　ｙ": : : : : : : : : :イ : : : : : : :"v　　　　'､
- * 　　　　　 }　　 ....:::::イ 　／.: :/: : :／: :／ 八: : : : : : : : :＼ 　　 ,"
- * 　　 　 　 j　　　　　/　,:': : : /: :／: ／ 　/: ハ: : }:＼: : : : :´､, ｫ
- * 　､'"~｀"ゞ　　　　　　 ,.: : : : : : : :イ≦"￣''　 ､;_:j : : : : : : : : ﾄﾐ
- * r"　　　　　ｵ彡　　　 {: : : {: : : Vfうか㍉　 　ル"＞ミ: : : : :!: !
- * ､　　　　　 ,"　　　　 人: :八.: :从 ヒツ　　　　　ん㍊: : : : : ﾘ j
- * ´､,,　　､ノ'′　-‐:彡/: : : : :＼ ヽ""　　　　 　 だﾝ 从: : : ｲﾚ
- * 　　"¨　. . : : : : : : : : : : : {: : : : : :)　　 　 　 '　 `¨ ノ: :ノ: : :人ヽ
- * 　　　／: ／: : : ／ : : : :八: : : : :ﾘ　　　`　ｰ　ｰ=彡:イ: : : : : : : :
- * 　 ／: : : : : : : : : : : : イ: : :): : : : :| ＼　　 　 　 イ : : }: : : :}: :ハ: }
- * 　,': : : {: : : :厂¨¨＜: 人: : : : : : : !　　　ｰ　 爪: :ｉ : : :} : : :ル: : :ｿ
- * 　{: : :八: ＞ 　 　 ／: : : : : : : : ﾘ　　　　　 {: : : i: : :r- ＜ ¨¨ヽ: : .
- * ..人: : ／　　 　／: : : : : i: : : : :八 　　／　〉ミ: i: r┴　　　ヽ　　V: :＼
- * 　　ｿ　　　　／: : : : : : : i: : ／　 　 　 　 ,"　＼:.r--　　　　　 ､　V: : : ＼
- * ／: :{ 　　　,':ｨ: /: : : ／ﾉ／　　　　 　 　 ,,　 　 λ ､　　　　　　∨i: : : : : : .
- * 　 /:{　　　　ル: : 彡" ≠＝==…-==＝彳　　 v´ ゝ冬。　　 　　　: : : : : :
- * 　. :∧　　 /: : :／"　 　"s｡　　 　 　 　 亥　　;"　　　ヽミ　　　　 Y: : : : : : :}
- * .ノ: : 人　/: ／ 　 {　　　　ドx｡　　　 ｡ζ　　　､　　　　: :ﾊ　　　　 Ⅳ: : : : :人
- * : : : : : :У: '　　　　､　　　 ';　 ≫≪ﾟ゜　;　　　 ;" 　　　　}:＾j　　　　i "､:ルｲ: : ＼
- * : : : : : (: :({　　　　 ;"　　　ｼﾞﾟ゜　.::　ヾ｡,"　　　",　　　　: ;"" ､,　　 i　 "; :八: :}
- * : :!: : :ハ:.入　　　　v　　　;"　　.::::..　　`;　　　　"､　　人{､　　　"､,,　 　)
- * V{: : : : : 　 ゝ 　 　 j　　　､ 　ノ　　＼　";　　　 　χ　　 〉"､,,　　　 ",､
- * 　 ､: : : Y¨¨≫＞　_)　 　,ж"　　　　 ,,ゞ''::.. -‐　　".､　/　　　"､,,　　　"
- * 　　ヽ: :∧〃 　 　 ", 　 π＿ﾟ≫=≦ﾟ＿　"､　　　　　V　　　　　 "､,,　　"､
- * 　　　V　　　　　　　''､　 ド¨　　　　 　　¨＝≧､,
- * 　　　　　 } 　 　 　 　 y"　　　　　　　　　　　　"､,_　　{　　　　　　　}"　　 ,"
- * 　　 　 　 { 　 　 　 　 ヽ　　　　　　;i　　 　 　 　 　 '`~え
- * 　　　　 　 　 　 　 　 ＼､　　　　　　　　　　　　　,'` ~　　", 　 　 　 }　　　;"
- * 　　　　　　V　　　 　 　 ＼　　　　　　　　　,,'` ~　　　　　　",
- * 　　　　　　　　　　　　　　 ∧"''　 ､＿,､"~　　　　　　　　　　")彡'　　　　;"
- * 　　　 　 　 ｊ　　　 　 　 　 　 j=＝¨天⌒ミo｡　　　　､,,v '`"~　＼　　　r'"
- * 　　　　　　　　　　　　　 　,,､'" ､｡彳 ヾ 　　　》'` "~　　 　 　 　､ ヽ､,v"
- * 　　　　　 /　　　 　 ,,r ､v~ 　 　 "i{ 　 》添冬　　　　　　　,,　'`　~ "ｙ
- * 　　　　　　　　r ､v~　　　　　　 　 "y 侔愛翔
- * 　　　　　　 ,,＾"　　　 　 　 　､,"＾　＼ ゞ趁彡'　　　　,''｀　　　f"~
- * 　　　〈　 r"　　　　　 　 　 　)i　 　 　 ヽ　 　 　 　 ,,'｀　 　 ,''｀i
- * 　　　　　j　　　..:::'′ ,､　　 '"|
- * 　　　　Y　　　 ",,　,,＾　　　 　i　　　　　､ .)　､ｒ~　 　,､ｒ~ 　 　j
- * 　　　　　　 　 彡ｨ"　　　　　　`-ヽ_ゝ しY,`~　　ｖ "
- * 　　　　　"､　　 ､j　　　　　　　　　 　 　 ;i＾　`~
- * 　　 　 　 　 "　 ~|　　　 　 　 　 　 　 　 i|　　　　　　　　　　/
- *
  * Byakuren - A theme color extracting library implemented by C.
  *
- * Copyright (c) 2022 XadillaX <i@2333.moe>
+ * Copyright (c) 2024 XadillaX <i@2333.moe>
  *
- * MIT LIcense <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
+ * MIT License <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
  */
-#ifndef __BKR_OCTREE_H__
-#define __BKR_OCTREE_H__
-#include "../common.h"
+#ifndef LIB_OCTREE_H_
+#define LIB_OCTREE_H_
+#include "../bkr_common.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-extern bkr_octree_node* bkr_build_octree(bkr_rgb* pixels, uint32_t pixel_count, uint32_t max_colors);
+/**
+ * @brief Builds an octree color quantization structure from an array of pixels.
+ *
+ * This function constructs an octree representation of the color space for the
+ * given pixel array. The octree is used to efficiently quantize colors and
+ * reduce the color palette to a specified maximum number of colors.
+ *
+ * The octree is built by iteratively adding colors and reducing the tree when
+ * necessary to maintain the maximum color limit. This process involves creating
+ * new nodes, updating leaf counts, and merging nodes when the tree exceeds the
+ * specified size.
+ *
+ * @param pixels Pointer to an array of bkr_rgb structures representing the
+ * input pixels.
+ * @param pixel_count The number of pixels in the input array.
+ * @param max_colors The maximum number of colors allowed in the final quantized
+ * palette.
+ * @return A pointer to the root node of the constructed octree, or NULL if an
+ * error occurred.
+ */
+extern bkr_octree_node* bkr_build_octree(bkr_rgb* pixels,
+                                         uint32_t pixel_count,
+                                         uint32_t max_colors);
+
+/**
+ * @brief Releases the memory allocated for an octree structure.
+ *
+ * This function recursively frees all memory associated with the given octree,
+ * including all its child nodes. It should be called when the octree is no
+ * longer needed to prevent memory leaks.
+ *
+ * The function traverses the entire tree structure, freeing each node in a
+ * depth-first manner. After calling this function, the passed node pointer and
+ * all its children become invalid and should not be accessed.
+ *
+ * @param node Pointer to the root node of the octree to be released.
+ */
 extern void bkr_release_octree(bkr_octree_node* node);
-extern int bkr_octree_calculate_color_stats(bkr_octree_node* node, bkr_color_stats stats[]);
+
+/**
+ * @brief Calculates color statistics from a built octree.
+ *
+ * This function traverses the octree structure and computes color statistics
+ * for each leaf node. It aggregates information such as color values and pixel
+ * counts, providing a summary of the quantized color palette.
+ *
+ * The function performs the following steps:
+ * 1. For each leaf node, it calculates the average color.
+ * 2. It stores the color information and pixel count in the provided stats
+ * array.
+ * 3. If the current node is the root, it sorts the final statistics for
+ * consistent output.
+ *
+ * @param node Pointer to the root node of the octree to analyze.
+ * @param stats Pointer to an array of bkr_color_stats structures where the
+ * results will be stored.
+ * @return The number of unique colors found in the octree (i.e., the number of
+ * leaf nodes).
+ */
+extern int bkr_octree_calculate_color_stats(bkr_octree_node* node,
+                                            bkr_color_stats stats[]);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif
+#endif  // LIB_OCTREE_H_

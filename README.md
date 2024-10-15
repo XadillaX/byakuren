@@ -1,14 +1,14 @@
 # Byakuren
 
-A theme color extracting library implemented by C.
+Byakuren is a C library for extracting theme colors from images.
 
-> This library is used in a related company for years.
+> This library has been used in production by a related company for years.
 
-> **TODO:** Using KD-Tree to find some colors.
+> **TODO:** Implement KD-Tree for color finding.
 
 ## 聖 白蓮
 
-![聖 白蓮](assets/byakuren.png)
+![聖 白蓮](https://github.com/XadillaX/byakuren/blob/master/assets/byakuren.png?raw=true)
 
 > 聖 白蓮（ひじり びゃくれん，Hiziri Byakuren）是系列作品《东方project》中的角色，首次登场于《东方星莲船》。
 >
@@ -22,301 +22,136 @@ A theme color extracting library implemented by C.
 >
 > 虽然已经入了佛门，但是不知道什么原因却被妖怪敬仰着。她从来没有像童话故事中的魔法使那样，念诵着咒语治退妖怪。使用的力量完全是邪恶的，一点都不像是圣人，虽然并没有人目击到她与人类为敌，但其实已彻底成为妖怪的同伴了。
 
-## Compile Static Library
+## Features
 
-Clone the project first.
+- Supports multiple color extraction algorithms:
+  - Octree algorithm
+  - Min-diff algorithm
+  - Mix-in algorithm (combining Octree and Min-diff)
+- Provides a simple C API
+- Can be compiled into a static library for easy integration
+
+## Installation
+
+Clone the repository with submodules:
 
 ```shell
-$ git clone --recurse-submodules https://github.com/XadillaX/byakuren.git
+git clone --recurse-submodules https://github.com/XadillaX/byakuren.git
 ```
 
-This project can be compiled to a static libary (byakuren.a) for using.
+Compile the static library:
 
 ```shell
-$ make byakuren
+make byakuren
 ```
 
-After compiling, you may use this library just by including `byakuren.h` in your project.
+After compilation, include `byakuren.h` in your project to use the library:
 
 ```c
 #include "byakuren.h"
 ```
 
-## Supported Algorithm
+## Usage
 
-- [x] octree algorithm
-- [x] min-diff algorithm
-- [x] mix-in algorithm
+1. Initialize the Byakuren environment:
+
+```c
+int result = bkr_init();
+```
+
+2. Use one of the color extraction algorithms:
+   - Octree Algorithm
+   - Min-diff Algorithm
+   - Mix Algorithm
+
+3. Release the environment when done:
+
+```c
+bkr_destroy();
+```
+
+For detailed API usage, refer to the [API Documentation](#apis) section below.
+
+## Testing
+
+Compile the test binary:
+
+```shell
+make ./test/bkr_test
+```
+
+Run the test with a specific algorithm:
+
+```shell
+cd test && ./bkr_test ALGORITHM
+```
+
+Replace `ALGORITHM` with `octree`, `mindiff`, or `mix`.
+
+### Test Helper
+
+A Node.js-based test helper is available for quick testing without generating `.rgb` files manually.
+
+1. Install dependencies:
+
+```shell
+npm install
+```
+
+2. Run the helper:
+
+```shell
+./test/run.js -u IMAGE_URL -a ALGORITHM
+```
+
+For example:
+
+```shell
+./test/run.js -u http://example.com/image.jpg -a octree
+```
+
+Use `-a all` to test all three algorithms at once.
 
 ## APIs
 
-### `bkr_rgb` Structure
+Here's a brief overview of the main APIs provided by Byakuren. For detailed parameter descriptions and usage, please refer to the full API documentation in the header files.
 
-```c
-typedef struct bkr_rgb {
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue
-} bkr_rgb;
-```
-
-RGB pixel structure.
-
-| name | type | description |
-|------|------|-------------|
-| red | uint8_t | the RED value (0-255) |
-| green | uint8_t | the GREEN value (0-255) |
-| blue | uint8_t | the BLUE value (0-255) |
-
-### `bkr_color_stats` Structure
-
-```c
-typedef struct bkr_color_stats {
-    bkr_rgb color;
-    uint32_t value;
-    uint32_t count;
-} bkr_color_stats;
-```
-
-Stats of theme color result.
-
-| name | type | description |
-|------|------|-------------|
-| color | bkr_rgb | a color pixel to indicate a theme color |
-| value | uint32_t | a color pixel's INT32 value to indicates the theme color |
-| count | uint32_t | stats of this theme color in the picture |
-
-```c
-typedef struct bkr_palette_array {
-    uint32_t count;
-    bkr_rgb* colors;
-} bkr_palette_array;
-```
-
-A crowd of colors to indicate a theme color palette.
-
-| name | type | description |
-|------|------|-------------|
-| count | uint32_t | color count in this palette |
-| colors | bkr_rgb* | each color in this palette |
-
-### `bkr_mindiff_parameter` Structure
-
-```c
-typedef struct bkr_mindiff_parameter {
-    bkr_palette_array* palette;
-    int16_t gray_offset;
-} bkr_mindiff_parameter;
-```
-
-A parameter passes to Min-diff Algorithm.
-
-| name | type | description |
-|------|------|-------------|
-| palette | bkr_palette_array* | a palette to calculate the theme color, left for `NULL` to indicate the default palette |
-| gray_offset | int16_t | the offset to judge whether a color is gray, recommand to be `5` |
-
-### Initialization & Release
-
-Before the whole work you should initialize the Byakuren environment:
+### Initialization & Cleanup
 
 ```c
 int bkr_init();
-```
-
-And after all the work you should release the environment:
-
-```c
 void bkr_destroy();
 ```
 
 ### Octree Algorithm
 
-#### Build Octree
-
 ```c
-bkr_octree_node* bkr_build_octree(
-        bkr_rgb* pixels,
-        uint32_t pixel_count,
-        uint32_t max_colors);
-```
-
-| parameter | type | description |
-|-----------|------|-------------|
-| pixels | bkr_rgb* | the RGB pixels of a picture |
-| pixel_count | uint32_t | pixel count of the picture |
-| max_colors | uint32_t | maximum theme color count this octree will have |
-
-+ Return an octree
-
-#### Calculate
-
-```c
-int bkr_octree_calculate_color_stats(
-        bkr_octree_node* node,
-        bkr_color_stats stats[]);
-```
-
-| parameter | type | description |
-|-----------|------|-------------|
-| node | bkr_octree_node* | the octree which `bkr_build_octree` returned |
-| stats | bkr_color_stats | an array to receive each theme color stats |
-
-+ Return the count of theme colors.
-
-#### Release Octree
-
-```c
+bkr_octree_node* bkr_build_octree(bkr_rgb* pixels, uint32_t pixel_count, uint32_t max_colors);
+int bkr_octree_calculate_color_stats(bkr_octree_node* node, bkr_color_stats stats[]);
 void bkr_release_octree(bkr_octree_node* node);
-```
-
-| parameter | type | description |
-|-----------|------|-------------|
-| node | bkr_octree_node* | the octree to be released |
-
-#### Example
-
-```c
-bkr_rgb* rgb = GET_PICTURE_RGB(); // implement by yourself
-uint32_t color_count = GET_PICTURE_PIXEL_COUNT(); // implement by yourself
-bkr_color_stats stats[256];
-bkr_octree_node* root = bkr_build_octree(rgb, color_count, 256);
-int colors = bkr_octree_calculate_color_stats(root, stats);
 ```
 
 ### Min-diff Algorithm
 
-#### Calculate
-
 ```c
-int bkr_mindiff_calculate_color_stats(
-        bkr_rgb* pixels,
-        uint32_t pixel_count,
-        bkr_color_stats stats[],
-        bkr_mindiff_parameter* param);
-```
-
-| parameter | type | description |
-|-----------|------|-------------|
-| pixels | bkr_rgb* | the RGB pixels of a picture |
-| pixel_count| uint32_t | pixel count of the picture |
-| stats | bkr_color_stats | an array to receive each theme color stats |
-| param | bkr_mindiff_parameter* | the parameter passes to Min-diff Algorithm for calculating |
-
-+ Return the count of theme colors.
-
-#### Example
-
-```c
-bkr_rgb* rgb = GET_PICTURE_RGB(); // implement by yourself
-uint32_t color_count = GET_PICTURE_PIXEL_COUNT(); // implement by yourself
-bkr_color_stats stats[256];
-bkr_mindiff_parameter param;
-param.gray_offset = 5;
-param.palette = NULL;
-int colors = bkr_mindiff_calculate_color_stats(rgb, color_count, stats, &param);
+int bkr_mindiff_calculate_color_stats(bkr_rgb* pixels, uint32_t pixel_count, bkr_color_stats stats[], bkr_mindiff_parameter* param);
 ```
 
 ### Mix Algorithm
 
-Mix Octree and Min-diff up.
-
-#### Calculate
-
 ```c
-int bkr_mix_calculate_color_stats(
-        bkr_rgb* pixels,
-        uint32_t pixel_count,
-        uint32_t octree_max_colors,
-        bkr_mindiff_parameter* mindiff_param,
-        bkr_color_stats stats[]);
+int bkr_mix_calculate_color_stats(bkr_rgb* pixels, uint32_t pixel_count, uint32_t octree_max_colors, bkr_mindiff_parameter* mindiff_param, bkr_color_stats stats[]);
 ```
 
-| parameter | type | description |
-|-----------|------|-------------|
-| pixels | bkr_rgb* | the RGB pixels of a picture |
-| pixel_count | uint32_t | pixel count of the picture |
-| octree_max_colors | uint32_t | maximum theme color count this octree will have |
-| param | bkr_mindiff_parameter* | the parameter passes to Min-diff Algorithm for calculating |
-| stats | bkr_color_stats | an array to receive each theme color stats |
+For full API documentation, including detailed descriptions of parameters and return values, please refer to the following header files:
 
-+ Return the count of theme colors.
+- `bkr_common.h`: Common structures and definitions
+- `lib/octree.h`: Octree algorithm functions
+- `lib/mindiff.h`: Min-diff algorithm functions
+- `lib/mix.h`: Mix algorithm functions
 
-#### Example
+## Contributing
 
-```c
-bkr_rgb* rgb = GET_PICTURE_RGB(); // implement by yourself
-uint32_t color_count = GET_PICTURE_PIXEL_COUNT(); // implement by yourself
-bkr_color_stats stats[256];
-bkr_mindiff_parameter param;
-param.gray_offset = -1;
-param.palette = NULL;
-int colors = bkr_mix_calculate_color_stats(rgb, color_count, 256, &param, stats);
-```
-
-## Test Command
-
-```shell
-$ make ./test/bkr_test
-```
-
-After `make` command, you should generate a binary file named `test.rgb`. Then run:
-
-```shell
-$ cd test && ./bkr_test ALGORITHM
-```
-
-> You may create your own `.rgb` file by referring **test/run.js** or **test/test.c**. Or you may have a look at [Test Helper](#test-helper).
->
-> `ALGORITHM` is a parameter means algorithm you want to test.
->
-> support `octree`、`mindiff` and `mix` so far.
-
-## Test Helper
-
-If you want to test quickly (no *.rgb), you may use a simple script.
-
-Install [Node.js](https://nodejs.org/) first and come to `test` folder. Then run:
-
-```shell
-$ cd test
-$ npm install
-```
-
-> **NOTICE:** You can start test helper directly under OSX. Otherwise, you should compile a test binary executor before testing, that is `$ make ./test/bkr_test`.
-
-After installing, run `--help`.
-
-```shell
-$ ./run.js --help
-```
-
-You will see some introduction. `-u` means a URL.
-
-For an example:
-
-```shell
-$ ./run.js -u http://cdn.duitang.com/uploads/item/201205/22/20120522224448_43nFu.thumb.600_0.jpeg -a octree
-```
-
-After command above, a browser will be open to display the result.
-
-If you want to test three algorithm at one time, you should make `-a` be `all`.
-
-For an example:
-
-```shell
-$ ./run.js -u http://cdn.duitang.com/uploads/item/201205/22/20120522224448_43nFu.thumb.600_0.jpeg -a all
-```
-
-### How It Look Like
-
-![Result](assets/result.png)
-
-> With `octree_max_colors` be 16 in Octree and Mix algorithm.
-
-## Contribution
-
-You're welcome to make Pull Requests.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 「雖然我覺得不怎麼可能有人會關注我」

@@ -1,67 +1,39 @@
 /**
- *
- *  　　　　　　　}:　　　　　 　 　 　 　 　 　 _､,r　､,,v　　　＼
- * 　　　　　　 /　　　　＼　　 　 　 ､,v'" ~　　　　　ﾟ~"''x､　＼
- * 　 　 　 　 / 　 　 　 　 　 　 ､r''"　　 ,, ､,v､x｡,,　　　　　~" ､,
- * 　　　　　　　　　　　 ...::::入,,"　　,,､イ: : : : : : : : :"'ﾐ､,
- * 　　　　　　　　　　...::::／ 　ｙ": : : : : : : : : :イ : : : : : : :"v　　　　'､
- * 　　　　　 }　　 ....:::::イ 　／.: :/: : :／: :／ 八: : : : : : : : :＼ 　　 ,"
- * 　　 　 　 j　　　　　/　,:': : : /: :／: ／ 　/: ハ: : }:＼: : : : :´､, ｫ
- * 　､'"~｀"ゞ　　　　　　 ,.: : : : : : : :イ≦"￣''　 ､;_:j : : : : : : : : ﾄﾐ
- * r"　　　　　ｵ彡　　　 {: : : {: : : Vfうか㍉　 　ル"＞ミ: : : : :!: !
- * ､　　　　　 ,"　　　　 人: :八.: :从 ヒツ　　　　　ん㍊: : : : : ﾘ j
- * ´､,,　　､ノ'′　-‐:彡/: : : : :＼ ヽ""　　　　 　 だﾝ 从: : : ｲﾚ
- * 　　"¨　. . : : : : : : : : : : : {: : : : : :)　　 　 　 '　 `¨ ノ: :ノ: : :人ヽ
- * 　　　／: ／: : : ／ : : : :八: : : : :ﾘ　　　`　ｰ　ｰ=彡:イ: : : : : : : :
- * 　 ／: : : : : : : : : : : : イ: : :): : : : :| ＼　　 　 　 イ : : }: : : :}: :ハ: }
- * 　,': : : {: : : :厂¨¨＜: 人: : : : : : : !　　　ｰ　 爪: :ｉ : : :} : : :ル: : :ｿ
- * 　{: : :八: ＞ 　 　 ／: : : : : : : : ﾘ　　　　　 {: : : i: : :r- ＜ ¨¨ヽ: : .
- * ..人: : ／　　 　／: : : : : i: : : : :八 　　／　〉ミ: i: r┴　　　ヽ　　V: :＼
- * 　　ｿ　　　　／: : : : : : : i: : ／　 　 　 　 ,"　＼:.r--　　　　　 ､　V: : : ＼
- * ／: :{ 　　　,':ｨ: /: : : ／ﾉ／　　　　 　 　 ,,　 　 λ ､　　　　　　∨i: : : : : : .
- * 　 /:{　　　　ル: : 彡" ≠＝==…-==＝彳　　 v´ ゝ冬。　　 　　　: : : : : :
- * 　. :∧　　 /: : :／"　 　"s｡　　 　 　 　 亥　　;"　　　ヽミ　　　　 Y: : : : : : :}
- * .ノ: : 人　/: ／ 　 {　　　　ドx｡　　　 ｡ζ　　　､　　　　: :ﾊ　　　　 Ⅳ: : : : :人
- * : : : : : :У: '　　　　､　　　 ';　 ≫≪ﾟ゜　;　　　 ;" 　　　　}:＾j　　　　i "､:ルｲ: : ＼
- * : : : : : (: :({　　　　 ;"　　　ｼﾞﾟ゜　.::　ヾ｡,"　　　",　　　　: ;"" ､,　　 i　 "; :八: :}
- * : :!: : :ハ:.入　　　　v　　　;"　　.::::..　　`;　　　　"､　　人{､　　　"､,,　 　)
- * V{: : : : : 　 ゝ 　 　 j　　　､ 　ノ　　＼　";　　　 　χ　　 〉"､,,　　　 ",､
- * 　 ､: : : Y¨¨≫＞　_)　 　,ж"　　　　 ,,ゞ''::.. -‐　　".､　/　　　"､,,　　　"
- * 　　ヽ: :∧〃 　 　 ", 　 π＿ﾟ≫=≦ﾟ＿　"､　　　　　V　　　　　 "､,,　　"､
- * 　　　V　　　　　　　''､　 ド¨　　　　 　　¨＝≧､,
- * 　　　　　 } 　 　 　 　 y"　　　　　　　　　　　　"､,_　　{　　　　　　　}"　　 ,"
- * 　　 　 　 { 　 　 　 　 ヽ　　　　　　;i　　 　 　 　 　 '`~え
- * 　　　　 　 　 　 　 　 ＼､　　　　　　　　　　　　　,'` ~　　", 　 　 　 }　　　;"
- * 　　　　　　V　　　 　 　 ＼　　　　　　　　　,,'` ~　　　　　　",
- * 　　　　　　　　　　　　　　 ∧"''　 ､＿,､"~　　　　　　　　　　")彡'　　　　;"
- * 　　　 　 　 ｊ　　　 　 　 　 　 j=＝¨天⌒ミo｡　　　　､,,v '`"~　＼　　　r'"
- * 　　　　　　　　　　　　　 　,,､'" ､｡彳 ヾ 　　　》'` "~　　 　 　 　､ ヽ､,v"
- * 　　　　　 /　　　 　 ,,r ､v~ 　 　 "i{ 　 》添冬　　　　　　　,,　'`　~ "ｙ
- * 　　　　　　　　r ､v~　　　　　　 　 "y 侔愛翔
- * 　　　　　　 ,,＾"　　　 　 　 　､,"＾　＼ ゞ趁彡'　　　　,''｀　　　f"~
- * 　　　〈　 r"　　　　　 　 　 　)i　 　 　 ヽ　 　 　 　 ,,'｀　 　 ,''｀i
- * 　　　　　j　　　..:::'′ ,､　　 '"|
- * 　　　　Y　　　 ",,　,,＾　　　 　i　　　　　､ .)　､ｒ~　 　,､ｒ~ 　 　j
- * 　　　　　　 　 彡ｨ"　　　　　　`-ヽ_ゝ しY,`~　　ｖ "
- * 　　　　　"､　　 ､j　　　　　　　　　 　 　 ;i＾　`~
- * 　　 　 　 　 "　 ~|　　　 　 　 　 　 　 　 i|　　　　　　　　　　/
- *
  * Byakuren - A theme color extracting library implemented by C.
  *
- * Copyright (c) 2022 XadillaX <i@2333.moe>
+ * Copyright (c) 2024 XadillaX <i@2333.moe>
  *
- * MIT LIcense <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
+ * MIT License <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
  */
-#ifndef __BKR_PALETTE_H__
-#define __BKR_PALETTE_H__
-#include "../common.h"
+#ifndef CONST_PALETTE_H_
+#define CONST_PALETTE_H_
+#include "../bkr_common.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-const extern bkr_palette_array _default_palette;
+/**
+ * @brief Default color palette used for color quantization and analysis.
+ *
+ * This constant represents a predefined color palette containing 256 RGB
+ * colors. It is used as the default palette in various color processing
+ * functions throughout the Byakuren library when a custom palette is not
+ * provided.
+ *
+ * The palette includes a wide range of colors, including:
+ * - Basic colors (black, white, primary and secondary colors)
+ * - Shades of gray
+ * - Various hues and saturations to cover a broad spectrum of the color space
+ *
+ * This default palette is designed to provide a good balance between color
+ * accuracy and computational efficiency for most general-purpose color
+ * quantization tasks.
+ */
+extern const bkr_palette_array _default_palette;
 
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif  // CONST_PALETTE_H_

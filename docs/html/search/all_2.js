@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['bkr_5fbuild_5foctree_0',['bkr_build_octree',['../octree_8h.html#aab7187f111b4bf840b483a50d5f45736',1,'octree.h']]],
+  ['bkr_5fcolor_5fstats_1',['bkr_color_stats',['../structbkr__color__stats.html',1,'bkr_color_stats'],['../bkr__common_8h.html#ae4501909d49e4ad19c827378914fdf27',1,'bkr_color_stats:&#160;bkr_common.h']]],
+  ['bkr_5fcommon_2eh_2',['bkr_common.h',['../bkr__common_8h.html',1,'']]],
+  ['bkr_5fdestroy_3',['bkr_destroy',['../bkr__common_8h.html#aded55a3b715554f57003e46fc559a94b',1,'bkr_common.h']]],
+  ['bkr_5finit_4',['bkr_init',['../bkr__common_8h.html#a12f2218b8490aa7232975f5ca01e65fa',1,'bkr_common.h']]],
+  ['bkr_5fis_5fgray_5',['BKR_IS_GRAY',['../bkr__common_8h.html#ac1eaf199522bf6acd128447b20ea2ef7',1,'bkr_common.h']]],
+  ['bkr_5fis_5fgray_5finner_6',['BKR_IS_GRAY_INNER',['../bkr__common_8h.html#a27a6e140a1f9df9a0767b3e948f00f8e',1,'bkr_common.h']]],
+  ['bkr_5fmindiff_5fcalculate_5fcolor_5fstats_7',['bkr_mindiff_calculate_color_stats',['../mindiff_8h.html#a5ecfc7259fa015cf8b89a7f1c324e5ad',1,'mindiff.h']]],
+  ['bkr_5fmindiff_5fparameter_8',['bkr_mindiff_parameter',['../structbkr__mindiff__parameter.html',1,'bkr_mindiff_parameter'],['../bkr__common_8h.html#a894ac37f8975a3c4bf523f72530ebd69',1,'bkr_mindiff_parameter:&#160;bkr_common.h']]],
+  ['bkr_5fmix_5fcalculate_5fcolor_5fstats_9',['bkr_mix_calculate_color_stats',['../mix_8h.html#a44310ca07fe60d971face060c75585d3',1,'mix.h']]],
+  ['bkr_5foctree_5fcalculate_5fcolor_5fstats_10',['bkr_octree_calculate_color_stats',['../octree_8h.html#a64c0dbf67f5f76e9c26c7f9576e4bc9d',1,'octree.h']]],
+  ['bkr_5foctree_5fnode_11',['bkr_octree_node',['../structbkr__octree__node.html',1,'bkr_octree_node'],['../bkr__common_8h.html#a5536a025c84e49359f4f25dd681778a0',1,'bkr_octree_node:&#160;bkr_common.h']]],
+  ['bkr_5foctree_5freducible_5flist_5fnode_12',['bkr_octree_reducible_list_node',['../structbkr__octree__reducible__list__node.html',1,'bkr_octree_reducible_list_node'],['../bkr__common_8h.html#aa4d076a2e6baa6a313ba09e41b559518',1,'bkr_octree_reducible_list_node:&#160;bkr_common.h']]],
+  ['bkr_5fpalette_5farray_13',['bkr_palette_array',['../structbkr__palette__array.html',1,'bkr_palette_array'],['../bkr__common_8h.html#a7d0db11d7720e4afd7c9619b1ca699ab',1,'bkr_palette_array:&#160;bkr_common.h']]],
+  ['bkr_5frelease_5foctree_14',['bkr_release_octree',['../octree_8h.html#af7e454678b317b689189d33ce4c3875a',1,'octree.h']]],
+  ['bkr_5frgb_15',['bkr_rgb',['../structbkr__rgb.html',1,'bkr_rgb'],['../bkr__common_8h.html#a9fc01c49546154b26d3ac5135ab3c9f7',1,'bkr_rgb:&#160;bkr_common.h']]],
+  ['bkr_5frgb_5fpool_16',['bkr_rgb_pool',['../bkr__common_8h.html#a836a0f922f52c297460c9ebe0b086a57',1,'bkr_common.h']]],
+  ['bkr_5frgb_5fto_5fint32_17',['BKR_RGB_TO_INT32',['../bkr__common_8h.html#a8cdddf6a002a25ed6c43a749ec8afe35',1,'bkr_common.h']]],
+  ['bkr_5fversion_18',['BKR_VERSION',['../bkr__common_8h.html#abe13b408f7332fccddf000f4ed585556',1,'bkr_common.h']]],
+  ['blue_19',['blue',['../structbkr__rgb.html#a3b98514ecbce6e86786d93191669ea09',1,'bkr_rgb']]],
+  ['blue_5fcomponents_20',['blue_components',['../structbkr__octree__node.html#a640caa9ad3fba7d94dd9617e54145642',1,'bkr_octree_node']]],
+  ['byakuren_21',['Byakuren',['../index.html',1,'']]],
+  ['byakuren_2eh_22',['byakuren.h',['../byakuren_8h.html',1,'']]]
+];

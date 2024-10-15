@@ -1,67 +1,57 @@
 /**
- *
- *  　　　　　　　}:　　　　　 　 　 　 　 　 　 _､,r　､,,v　　　＼
- * 　　　　　　 /　　　　＼　　 　 　 ､,v'" ~　　　　　ﾟ~"''x､　＼
- * 　 　 　 　 / 　 　 　 　 　 　 ､r''"　　 ,, ､,v､x｡,,　　　　　~" ､,
- * 　　　　　　　　　　　 ...::::入,,"　　,,､イ: : : : : : : : :"'ﾐ､,
- * 　　　　　　　　　　...::::／ 　ｙ": : : : : : : : : :イ : : : : : : :"v　　　　'､
- * 　　　　　 }　　 ....:::::イ 　／.: :/: : :／: :／ 八: : : : : : : : :＼ 　　 ,"
- * 　　 　 　 j　　　　　/　,:': : : /: :／: ／ 　/: ハ: : }:＼: : : : :´､, ｫ
- * 　､'"~｀"ゞ　　　　　　 ,.: : : : : : : :イ≦"￣''　 ､;_:j : : : : : : : : ﾄﾐ
- * r"　　　　　ｵ彡　　　 {: : : {: : : Vfうか㍉　 　ル"＞ミ: : : : :!: !
- * ､　　　　　 ,"　　　　 人: :八.: :从 ヒツ　　　　　ん㍊: : : : : ﾘ j
- * ´､,,　　､ノ'′　-‐:彡/: : : : :＼ ヽ""　　　　 　 だﾝ 从: : : ｲﾚ
- * 　　"¨　. . : : : : : : : : : : : {: : : : : :)　　 　 　 '　 `¨ ノ: :ノ: : :人ヽ
- * 　　　／: ／: : : ／ : : : :八: : : : :ﾘ　　　`　ｰ　ｰ=彡:イ: : : : : : : :
- * 　 ／: : : : : : : : : : : : イ: : :): : : : :| ＼　　 　 　 イ : : }: : : :}: :ハ: }
- * 　,': : : {: : : :厂¨¨＜: 人: : : : : : : !　　　ｰ　 爪: :ｉ : : :} : : :ル: : :ｿ
- * 　{: : :八: ＞ 　 　 ／: : : : : : : : ﾘ　　　　　 {: : : i: : :r- ＜ ¨¨ヽ: : .
- * ..人: : ／　　 　／: : : : : i: : : : :八 　　／　〉ミ: i: r┴　　　ヽ　　V: :＼
- * 　　ｿ　　　　／: : : : : : : i: : ／　 　 　 　 ,"　＼:.r--　　　　　 ､　V: : : ＼
- * ／: :{ 　　　,':ｨ: /: : : ／ﾉ／　　　　 　 　 ,,　 　 λ ､　　　　　　∨i: : : : : : .
- * 　 /:{　　　　ル: : 彡" ≠＝==…-==＝彳　　 v´ ゝ冬。　　 　　　: : : : : :
- * 　. :∧　　 /: : :／"　 　"s｡　　 　 　 　 亥　　;"　　　ヽミ　　　　 Y: : : : : : :}
- * .ノ: : 人　/: ／ 　 {　　　　ドx｡　　　 ｡ζ　　　､　　　　: :ﾊ　　　　 Ⅳ: : : : :人
- * : : : : : :У: '　　　　､　　　 ';　 ≫≪ﾟ゜　;　　　 ;" 　　　　}:＾j　　　　i "､:ルｲ: : ＼
- * : : : : : (: :({　　　　 ;"　　　ｼﾞﾟ゜　.::　ヾ｡,"　　　",　　　　: ;"" ､,　　 i　 "; :八: :}
- * : :!: : :ハ:.入　　　　v　　　;"　　.::::..　　`;　　　　"､　　人{､　　　"､,,　 　)
- * V{: : : : : 　 ゝ 　 　 j　　　､ 　ノ　　＼　";　　　 　χ　　 〉"､,,　　　 ",､
- * 　 ､: : : Y¨¨≫＞　_)　 　,ж"　　　　 ,,ゞ''::.. -‐　　".､　/　　　"､,,　　　"
- * 　　ヽ: :∧〃 　 　 ", 　 π＿ﾟ≫=≦ﾟ＿　"､　　　　　V　　　　　 "､,,　　"､
- * 　　　V　　　　　　　''､　 ド¨　　　　 　　¨＝≧､,
- * 　　　　　 } 　 　 　 　 y"　　　　　　　　　　　　"､,_　　{　　　　　　　}"　　 ,"
- * 　　 　 　 { 　 　 　 　 ヽ　　　　　　;i　　 　 　 　 　 '`~え
- * 　　　　 　 　 　 　 　 ＼､　　　　　　　　　　　　　,'` ~　　", 　 　 　 }　　　;"
- * 　　　　　　V　　　 　 　 ＼　　　　　　　　　,,'` ~　　　　　　",
- * 　　　　　　　　　　　　　　 ∧"''　 ､＿,､"~　　　　　　　　　　")彡'　　　　;"
- * 　　　 　 　 ｊ　　　 　 　 　 　 j=＝¨天⌒ミo｡　　　　､,,v '`"~　＼　　　r'"
- * 　　　　　　　　　　　　　 　,,､'" ､｡彳 ヾ 　　　》'` "~　　 　 　 　､ ヽ､,v"
- * 　　　　　 /　　　 　 ,,r ､v~ 　 　 "i{ 　 》添冬　　　　　　　,,　'`　~ "ｙ
- * 　　　　　　　　r ､v~　　　　　　 　 "y 侔愛翔
- * 　　　　　　 ,,＾"　　　 　 　 　､,"＾　＼ ゞ趁彡'　　　　,''｀　　　f"~
- * 　　　〈　 r"　　　　　 　 　 　)i　 　 　 ヽ　 　 　 　 ,,'｀　 　 ,''｀i
- * 　　　　　j　　　..:::'′ ,､　　 '"|
- * 　　　　Y　　　 ",,　,,＾　　　 　i　　　　　､ .)　､ｒ~　 　,､ｒ~ 　 　j
- * 　　　　　　 　 彡ｨ"　　　　　　`-ヽ_ゝ しY,`~　　ｖ "
- * 　　　　　"､　　 ､j　　　　　　　　　 　 　 ;i＾　`~
- * 　　 　 　 　 "　 ~|　　　 　 　 　 　 　 　 i|　　　　　　　　　　/
- *
  * Byakuren - A theme color extracting library implemented by C.
  *
- * Copyright (c) 2022 XadillaX <i@2333.moe>
+ * Copyright (c) 2024 XadillaX <i@2333.moe>
  *
- * MIT LIcense <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
+ * MIT License <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
  */
-#ifndef __BKR_MIX_H__
-#define __BKR_MIX_H__
+#ifndef LIB_MIX_H_
+#define LIB_MIX_H_
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-#include "../common.h"
 
-extern int bkr_mix_calculate_color_stats(bkr_rgb* pixels, uint32_t pixel_count, uint32_t octree_max_colors, bkr_mindiff_parameter* mindiff_param, bkr_color_stats stats[]);
+#include "../bkr_common.h"
+
+/**
+ * @brief Calculate color statistics using a mixed approach of octree
+ * quantization and minimum difference method.
+ *
+ * This function combines the efficiency of octree color quantization with the
+ * accuracy of the minimum difference method to produce high-quality color
+ * statistics. The process involves several steps:
+ *
+ * 1. Octree quantization is applied to the input pixels to reduce the number of
+ * colors to a manageable set.
+ * 2. The reduced color set is then mapped to a predefined palette using the
+ * minimum difference method.
+ * 3. The results are compiled into color statistics, sorted, and returned.
+ *
+ * This mixed approach allows for faster processing of large images while still
+ * maintaining color accuracy and adhering to a specific color palette.
+ *
+ * @param pixels Pointer to an array of bkr_rgb structures representing the
+ * pixels to process.
+ * @param pixel_count The number of pixels in the pixels array.
+ * @param octree_max_colors The maximum number of colors to use in the octree
+ * quantization step.
+ * @param mindiff_param Pointer to a bkr_mindiff_parameter structure containing
+ * parameters for the minimum difference calculation.
+ * @param stats Pointer to an array of bkr_color_stats structures where the
+ * results will be stored.
+ *
+ * @return The number of unique colors found in the statistics, or -1 if an
+ * error occurred.
+ */
+extern int bkr_mix_calculate_color_stats(bkr_rgb* pixels,
+                                         uint32_t pixel_count,
+                                         uint32_t octree_max_colors,
+                                         bkr_mindiff_parameter* mindiff_param,
+                                         bkr_color_stats stats[]);
 
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif  // LIB_MIX_H_

@@ -1,0 +1,86 @@
+# Doxyfile for Byakuren
+
+# Project related configuration options
+PROJECT_NAME           = "Byakuren"
+PROJECT_NUMBER         = 1.0.1
+PROJECT_BRIEF          = "A theme color extracting library implemented by C."
+OUTPUT_DIRECTORY       = docs
+CREATE_SUBDIRS         = NO
+ALLOW_UNICODE_NAMES    = NO
+OUTPUT_LANGUAGE        = English
+
+# Build related configuration options
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+# Input files
+INPUT                  = README.md lib const byakuren.h bkr_common.h
+FILE_PATTERNS          = *.h *.md
+RECURSIVE              = YES
+
+# Output options
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+
+# Preprocessing
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = NO
+
+# Dot tool configuration
+HAVE_DOT               = NO
+
+# Source browsing
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+
+# Index
+ALPHABETICAL_INDEX     = YES
+
+# Message options
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+
+# C-specific options
+OPTIMIZE_OUTPUT_FOR_C  = YES
+TYPEDEF_HIDES_STRUCT   = NO
+
+# Documentation options
+JAVADOC_AUTOBRIEF      = YES
+QT_AUTOBRIEF           = YES
+MULTILINE_CPP_IS_BRIEF = YES
+INHERIT_DOCS           = YES
+SEPARATE_MEMBER_PAGES  = NO
+TAB_SIZE               = 4
+ALIASES                =
+OPTIMIZE_OUTPUT_FOR_C  = YES
+BUILTIN_STL_SUPPORT    = NO
+CPP_CLI_SUPPORT        = NO
+SIP_SUPPORT            = NO
+IDL_PROPERTY_SUPPORT   = YES
+DISTRIBUTE_GROUP_DOC   = NO
+GROUP_NESTED_COMPOUNDS = NO
+SUBGROUPING            = YES
+INLINE_GROUPED_CLASSES = NO
+INLINE_SIMPLE_STRUCTS  = NO
+
+# Docstring options
+USE_MDFILE_AS_MAINPAGE = README.md
+MARKDOWN_SUPPORT       = YES
+
+SHOW_NAMESPACES = NO
+SHOW_FILES = YES
+SHOW_USED_FILES = YES
+SHOW_DIRECTORIES = YES
+SHOW_INCLUDE_FILES = YES
+
+GENERATE_TREEVIEW = YES
+
+CALL_GRAPH = YES
+CALLER_GRAPH = YES
+
+LAYOUT_FILE = DoxygenLayout.xml

@@ -1,75 +1,63 @@
 /**
- *
- *  　　　　　　　}:　　　　　 　 　 　 　 　 　 _､,r　､,,v　　　＼
- * 　　　　　　 /　　　　＼　　 　 　 ､,v'" ~　　　　　ﾟ~"''x､　＼
- * 　 　 　 　 / 　 　 　 　 　 　 ､r''"　　 ,, ､,v､x｡,,　　　　　~" ､,
- * 　　　　　　　　　　　 ...::::入,,"　　,,､イ: : : : : : : : :"'ﾐ､,
- * 　　　　　　　　　　...::::／ 　ｙ": : : : : : : : : :イ : : : : : : :"v　　　　'､
- * 　　　　　 }　　 ....:::::イ 　／.: :/: : :／: :／ 八: : : : : : : : :＼ 　　 ,"
- * 　　 　 　 j　　　　　/　,:': : : /: :／: ／ 　/: ハ: : }:＼: : : : :´､, ｫ
- * 　､'"~｀"ゞ　　　　　　 ,.: : : : : : : :イ≦"￣''　 ､;_:j : : : : : : : : ﾄﾐ
- * r"　　　　　ｵ彡　　　 {: : : {: : : Vfうか㍉　 　ル"＞ミ: : : : :!: !
- * ､　　　　　 ,"　　　　 人: :八.: :从 ヒツ　　　　　ん㍊: : : : : ﾘ j
- * ´､,,　　､ノ'′　-‐:彡/: : : : :＼ ヽ""　　　　 　 だﾝ 从: : : ｲﾚ
- * 　　"¨　. . : : : : : : : : : : : {: : : : : :)　　 　 　 '　 `¨ ノ: :ノ: : :人ヽ
- * 　　　／: ／: : : ／ : : : :八: : : : :ﾘ　　　`　ｰ　ｰ=彡:イ: : : : : : : :
- * 　 ／: : : : : : : : : : : : イ: : :): : : : :| ＼　　 　 　 イ : : }: : : :}: :ハ: }
- * 　,': : : {: : : :厂¨¨＜: 人: : : : : : : !　　　ｰ　 爪: :ｉ : : :} : : :ル: : :ｿ
- * 　{: : :八: ＞ 　 　 ／: : : : : : : : ﾘ　　　　　 {: : : i: : :r- ＜ ¨¨ヽ: : .
- * ..人: : ／　　 　／: : : : : i: : : : :八 　　／　〉ミ: i: r┴　　　ヽ　　V: :＼
- * 　　ｿ　　　　／: : : : : : : i: : ／　 　 　 　 ,"　＼:.r--　　　　　 ､　V: : : ＼
- * ／: :{ 　　　,':ｨ: /: : : ／ﾉ／　　　　 　 　 ,,　 　 λ ､　　　　　　∨i: : : : : : .
- * 　 /:{　　　　ル: : 彡" ≠＝==…-==＝彳　　 v´ ゝ冬。　　 　　　: : : : : :
- * 　. :∧　　 /: : :／"　 　"s｡　　 　 　 　 亥　　;"　　　ヽミ　　　　 Y: : : : : : :}
- * .ノ: : 人　/: ／ 　 {　　　　ドx｡　　　 ｡ζ　　　､　　　　: :ﾊ　　　　 Ⅳ: : : : :人
- * : : : : : :У: '　　　　､　　　 ';　 ≫≪ﾟ゜　;　　　 ;" 　　　　}:＾j　　　　i "､:ルｲ: : ＼
- * : : : : : (: :({　　　　 ;"　　　ｼﾞﾟ゜　.::　ヾ｡,"　　　",　　　　: ;"" ､,　　 i　 "; :八: :}
- * : :!: : :ハ:.入　　　　v　　　;"　　.::::..　　`;　　　　"､　　人{､　　　"､,,　 　)
- * V{: : : : : 　 ゝ 　 　 j　　　､ 　ノ　　＼　";　　　 　χ　　 〉"､,,　　　 ",､
- * 　 ､: : : Y¨¨≫＞　_)　 　,ж"　　　　 ,,ゞ''::.. -‐　　".､　/　　　"､,,　　　"
- * 　　ヽ: :∧〃 　 　 ", 　 π＿ﾟ≫=≦ﾟ＿　"､　　　　　V　　　　　 "､,,　　"､
- * 　　　V　　　　　　　''､　 ド¨　　　　 　　¨＝≧､,
- * 　　　　　 } 　 　 　 　 y"　　　　　　　　　　　　"､,_　　{　　　　　　　}"　　 ,"
- * 　　 　 　 { 　 　 　 　 ヽ　　　　　　;i　　 　 　 　 　 '`~え
- * 　　　　 　 　 　 　 　 ＼､　　　　　　　　　　　　　,'` ~　　", 　 　 　 }　　　;"
- * 　　　　　　V　　　 　 　 ＼　　　　　　　　　,,'` ~　　　　　　",
- * 　　　　　　　　　　　　　　 ∧"''　 ､＿,､"~　　　　　　　　　　")彡'　　　　;"
- * 　　　 　 　 ｊ　　　 　 　 　 　 j=＝¨天⌒ミo｡　　　　､,,v '`"~　＼　　　r'"
- * 　　　　　　　　　　　　　 　,,､'" ､｡彳 ヾ 　　　》'` "~　　 　 　 　､ ヽ､,v"
- * 　　　　　 /　　　 　 ,,r ､v~ 　 　 "i{ 　 》添冬　　　　　　　,,　'`　~ "ｙ
- * 　　　　　　　　r ､v~　　　　　　 　 "y 侔愛翔
- * 　　　　　　 ,,＾"　　　 　 　 　､,"＾　＼ ゞ趁彡'　　　　,''｀　　　f"~
- * 　　　〈　 r"　　　　　 　 　 　)i　 　 　 ヽ　 　 　 　 ,,'｀　 　 ,''｀i
- * 　　　　　j　　　..:::'′ ,､　　 '"|
- * 　　　　Y　　　 ",,　,,＾　　　 　i　　　　　､ .)　､ｒ~　 　,､ｒ~ 　 　j
- * 　　　　　　 　 彡ｨ"　　　　　　`-ヽ_ゝ しY,`~　　ｖ "
- * 　　　　　"､　　 ､j　　　　　　　　　 　 　 ;i＾　`~
- * 　　 　 　 　 "　 ~|　　　 　 　 　 　 　 　 i|　　　　　　　　　　/
- *
  * Byakuren - A theme color extracting library implemented by C.
  *
- * Copyright (c) 2022 XadillaX <i@2333.moe>
+ * Copyright (c) 2024 XadillaX <i@2333.moe>
  *
- * MIT LIcense <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
+ * MIT License <https://github.com/XadillaX/byakuren/blob/master/LICENSE>
  */
-#ifndef __BKR_MINDIFF_H__
-#define __BKR_MINDIFF_H__
+#ifndef LIB_MINDIFF_H_
+#define LIB_MINDIFF_H_
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-#include "../common.h"
+
+#include "../bkr_common.h"
 
 /**
- * 色板统计结构体
+ * @brief Color palette statistics structure.
+ *
+ * This structure is used to store information about a color in the palette
+ * and its frequency of occurrence in the image being processed.
  */
 typedef struct _bkr_palette_stats {
-    bkr_rgb* color;
-    uint32_t count;
+  bkr_rgb* color; /**< Pointer to the RGB color. */
+  uint32_t count; /**< Frequency of the color's occurrence. */
 } _bkr_palette_stats;
 
-extern int bkr_mindiff_calculate_color_stats(bkr_rgb* pixels, uint32_t pixel_count, bkr_color_stats stats[], bkr_mindiff_parameter* param);
+/**
+ * @brief Calculate color statistics using the minimum difference method.
+ *
+ * This function processes an array of pixels and calculates color statistics
+ * based on a given or default color palette. It uses the minimum difference
+ * method to map each pixel to the closest color in the palette.
+ *
+ * The function separates colors into colored and grayscale palettes based on
+ * the gray_offset parameter. It then processes each pixel, finding the closest
+ * color in the appropriate palette, and updates the count for that color.
+ *
+ * After processing all pixels, it compiles the final color statistics,
+ * including only colors with non-zero counts, and sorts them for consistent
+ * output.
+ *
+ * @param pixels Pointer to an array of bkr_rgb structures representing the
+ * pixels to process.
+ * @param pixel_count The number of pixels in the pixels array.
+ * @param stats Pointer to an array of bkr_color_stats structures where the
+ * results will be stored.
+ * @param param Pointer to a bkr_mindiff_parameter structure containing
+ * processing parameters.
+ *
+ * @return The number of unique colors found in the statistics, or -1 if an
+ * error occurred.
+ */
+extern int bkr_mindiff_calculate_color_stats(bkr_rgb* pixels,
+                                             uint32_t pixel_count,
+                                             bkr_color_stats stats[],
+                                             bkr_mindiff_parameter* param);
 
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif  // LIB_MINDIFF_H_

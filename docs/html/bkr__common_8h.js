@@ -1,0 +1,28 @@
+var bkr__common_8h =
+[
+    [ "bkr_rgb", "structbkr__rgb.html", "structbkr__rgb" ],
+    [ "bkr_color_stats", "structbkr__color__stats.html", "structbkr__color__stats" ],
+    [ "bkr_octree_node", "structbkr__octree__node.html", "structbkr__octree__node" ],
+    [ "bkr_octree_reducible_list_node", "structbkr__octree__reducible__list__node.html", "structbkr__octree__reducible__list__node" ],
+    [ "bkr_palette_array", "structbkr__palette__array.html", "structbkr__palette__array" ],
+    [ "bkr_mindiff_parameter", "structbkr__mindiff__parameter.html", "structbkr__mindiff__parameter" ],
+    [ "BKR_IS_GRAY", "bkr__common_8h.html#ac1eaf199522bf6acd128447b20ea2ef7", null ],
+    [ "BKR_IS_GRAY_INNER", "bkr__common_8h.html#a27a6e140a1f9df9a0767b3e948f00f8e", null ],
+    [ "BKR_RGB_TO_INT32", "bkr__common_8h.html#a8cdddf6a002a25ed6c43a749ec8afe35", null ],
+    [ "BKR_VERSION", "bkr__common_8h.html#abe13b408f7332fccddf000f4ed585556", null ],
+    [ "DIFF_A_B_GTE_OFFSET", "bkr__common_8h.html#a7a21508ef4a4bc03ad8a6f57d10fd9ed", null ],
+    [ "MAX_INT", "bkr__common_8h.html#aaa1ac5caef84256eaeb39594e58e096f", null ],
+    [ "NULL", "bkr__common_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4", null ],
+    [ "SAFE_DESTROY_POOL", "bkr__common_8h.html#af03540acd611766937c2df61c16c5f34", null ],
+    [ "SAFE_FREE", "bkr__common_8h.html#a433fa9eec4b0f15e42bbc8975be6359e", null ],
+    [ "bkr_color_stats", "bkr__common_8h.html#ae4501909d49e4ad19c827378914fdf27", null ],
+    [ "bkr_mindiff_parameter", "bkr__common_8h.html#a894ac37f8975a3c4bf523f72530ebd69", null ],
+    [ "bkr_octree_node", "bkr__common_8h.html#a5536a025c84e49359f4f25dd681778a0", null ],
+    [ "bkr_octree_reducible_list_node", "bkr__common_8h.html#aa4d076a2e6baa6a313ba09e41b559518", null ],
+    [ "bkr_palette_array", "bkr__common_8h.html#a7d0db11d7720e4afd7c9619b1ca699ab", null ],
+    [ "bkr_rgb", "bkr__common_8h.html#a9fc01c49546154b26d3ac5135ab3c9f7", null ],
+    [ "_stats_cmp", "bkr__common_8h.html#a262eb5df1e2c96ae26de65eda841c1e2", null ],
+    [ "bkr_destroy", "bkr__common_8h.html#aded55a3b715554f57003e46fc559a94b", null ],
+    [ "bkr_init", "bkr__common_8h.html#a12f2218b8490aa7232975f5ca01e65fa", null ],
+    [ "bkr_rgb_pool", "bkr__common_8h.html#a836a0f922f52c297460c9ebe0b086a57", null ]
+];
