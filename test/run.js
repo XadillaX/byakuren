@@ -86,18 +86,17 @@ if (opts.algorithm === 'all') {
   async.waterfall(
     [
       function (callback) {
-        pixelGetter.get(opts.url, callback, 1, 10000);
+        pixelGetter.getRaw(opts.url, {
+          frames: 0,
+          timeout: 10000,
+          pixelType: pixelGetter.PixelType.RGB,
+        }, (err, p) => {
+          console.error(p.pixels[0].length, p.pixelsCount, p.pixelsCount * 3);
+          callback(err, p);
+        })
       },
       function (pixels, callback) {
-        pixels = pixels[0];
-        var buff = Buffer.alloc(3 * pixels.length);
-        for (var i = 0; i < pixels.length; i++) {
-          buff[i * 3] = pixels[i].r;
-          buff[i * 3 + 1] = pixels[i].g;
-          buff[i * 3 + 2] = pixels[i].b;
-        }
-
-        callback(undefined, buff);
+        callback(undefined, pixels.pixels[0]);
       },
       function (buff, callback) {
         fs.writeFile(
@@ -143,11 +142,21 @@ if (opts.algorithm === 'all') {
         html += `<img src='${opts.url}' /><br /><br />`;
 
         for (var i = 0; i < result.count; i++) {
-          html += `<div style='width: 50px; height: 21px; float: left; margin-right: 5px; margin-bottom: 5px; background: #${int32ToRGB(
-            result.colors[i].color
-          )}; color: #fff; font-size: 12px; text-align: center; padding-top: 9px;'>${
-            result.colors[i].count
-          }</div>`;
+          html += `<div
+                     style='
+                       width: 50px;
+                       height: 21px;
+                       float: left;
+                       margin-right: 5px;
+                       margin-bottom: 5px;
+                       background: #${int32ToRGB(result.colors[i].color)};
+                       color: #fff;
+                       font-size: 12px;
+                       text-align: center;
+                       padding-top: 9px;
+                      '>
+                      ${result.colors[i].count}
+                   </div>`;
         }
 
         var filename = `/tmp/${+new Date()}.html`;

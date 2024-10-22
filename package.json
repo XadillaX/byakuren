@@ -3,8 +3,7 @@
     "async": "^0.9.0",
     "clang-format": "^1.8.0",
     "nomnom": "^1.8.1",
-    "pixel-getter": "^1.0.0",
-    "spidex": "^2.0.1"
+    "pixel-getter": "^2.0.1"
   },
   "scripts": {
     "test": "./test/run.js"
